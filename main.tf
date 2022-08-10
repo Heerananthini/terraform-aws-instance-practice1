@@ -1,6 +1,7 @@
 resource "aws_instance" "web" {
   ami               = var.ami
   instance_type     = var.instance_type
+  subnet_id = aws_subnet.web_subnet.id
   tags              = {
      "Name" = "web"
   }
@@ -11,5 +12,5 @@ module "instance-practice" {
   # insert required variables here
   ami = var.ami
   instance_type = var.instance_type
-  subnet_id = aws_subnet.web_subnet.id
+  
 }
